@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>5 Southerton — House Sitting</title>
+<meta name="description" content="Daily tasks and house notes for looking after 5 Southerton, 31 July – 31 August 2026.">
+<meta name="theme-color" content="#f7f4ef">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏡</text></svg>">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <p class="eyebrow">House sitting</p>
+    <h1>5 Southerton</h1>
+    <p class="dates">Fri 31 July – Mon 31 August 2026</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ────────── DAY VIEW ────────── -->
+  <section class="day-view" aria-labelledby="day-heading">
+
+    <nav class="day-nav" aria-label="Change day">
+      <button type="button" id="prev-day" class="arrow" aria-label="Previous day">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8"/></svg>
+      </button>
+
+      <div class="day-nav-label">
+        <h2 id="day-heading"><span id="day-weekday">—</span></h2>
+        <p id="day-date">—</p>
+      </div>
+
+      <button type="button" id="next-day" class="arrow" aria-label="Next day">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg>
+      </button>
+    </nav>
+
+    <p class="nav-hint">Swipe, or use the arrows / arrow keys, to move between days</p>
+
+    <div class="card day-card" id="day-card">
+      <div class="day-badges" id="day-badges"></div>
+      <p class="day-note" id="day-note" hidden></p>
+
+      <ul class="tasks" id="task-list"></ul>
+
+      <div class="rain-row">
+        <label class="rain-toggle">
+          <input type="checkbox" id="rain-check">
+          <span>It rained today — outdoor plants can be skipped</span>
+        </label>
+      </div>
+
+      <p class="progress" id="progress" aria-live="polite"></p>
+    </div>
+
+    <button type="button" id="today-btn" class="today-btn" hidden>Jump to today</button>
+  </section>
+
+  <!-- ────────── CALENDAR ────────── -->
+  <section class="calendar-section" aria-labelledby="cal-heading">
+    <h2 id="cal-heading" class="section-heading">Whole stay</h2>
+    <p class="section-sub">Tap any day to see what's on. A filled dot means everything's ticked off.</p>
+
+    <div class="card">
+      <div class="cal-weekdays" aria-hidden="true">
+        <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span>
+        <span>Fri</span><span>Sat</span><span>Sun</span>
+      </div>
+      <div class="cal-grid" id="cal-grid" role="list"></div>
+      <p class="cal-key">
+        <span class="key-item"><i class="dot dot-done"></i> All done</span>
+        <span class="key-item"><i class="dot dot-part"></i> Part done</span>
+        <span class="key-item"><i class="dot dot-none"></i> Not started</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ────────── HOUSE NOTES ────────── -->
+  <section class="notes-section" aria-labelledby="notes-heading">
+    <h2 id="notes-heading" class="section-heading">House notes</h2>
+    <p class="section-sub">Everything you might need. Tap a heading to open it.</p>
+
+    <details class="note" open>
+      <summary><span class="note-icon">🔐</span> Doors &amp; the lock</summary>
+      <div class="note-body">
+        <p><strong>The front and back doors should always be locked when nobody is in the house.</strong> Even if you're just popping out for ten minutes.</p>
+        <p>The front door lock mechanism is a bit tricky — it doesn't always catch first time. I'll walk you through it in person before I go, and I'd rather show you once too often than not at all. If anyone else needs to get in while I'm away, please show them how it works too.</p>
+        <p class="callout">Stuck with the lock? Call me — it's a two-minute fix once you've seen it done.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">🐠</span> Fish</summary>
+      <div class="note-body">
+        <p><strong>Every day.</strong> A small pinch of food — they'll come up to the surface for it.</p>
+        <p>It's much better to underfeed than overfeed. If in doubt, give less; uneaten food fouls the water.</p>
+        <p>The tank light is on a timer, so don't worry if it's on or off at odd hours — that's normal, leave it alone.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">🪴</span> Plants</summary>
+      <div class="note-body">
+        <p><strong>Outdoor plants — every day, unless it has rained.</strong> If there's been decent rain, skip it and tick the rain box on that day. Don't water in full midday sun if you can help it; morning or evening is kinder.</p>
+        <p><strong>Indoor plants — once a week.</strong> I've put these on <strong>Sundays</strong> so it's easy to remember, but a day either way is absolutely fine.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">✉️</span> Post</summary>
+      <div class="note-body">
+        <p>Nothing to do with it — just pop it on the <strong>side table by the front door</strong> and leave it there. I'll go through it when I'm back.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">💡</span> Lights</summary>
+      <div class="note-body">
+        <p>The lights are automatic and on a timer — the <strong>fish tank</strong> and the <strong>kitchen / living room</strong>.</p>
+        <p>They'll switch themselves on and off. Nothing needs setting or changing; if they come on when you're not expecting it, that's just the timer doing its job.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">🧳</span> Going away for a weekend?</summary>
+      <div class="note-body">
+        <p>Not a problem at all. There's an <strong>automatic fish feeder</strong> you can use to cover a couple of days.</p>
+        <p>Give me a ring before you set it up and I'll happily jump on a call and talk you through it — it's fiddly the first time.</p>
+        <p>Just make sure <strong>both doors are locked</strong> before you head off.</p>
+      </div>
+    </details>
+
+    <details class="note">
+      <summary><span class="note-icon">☕</span> Make yourself at home</summary>
+      <div class="note-body">
+        <p>Genuinely — help yourself to a glass of water, use the toilet, sit down for five minutes. You're doing me a favour and I'd rather you were comfortable.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ────────── CONTACT ────────── -->
+  <section class="contact-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading" class="section-heading">If you need me</h2>
+    <div class="card contact-card">
+      <a class="phone" href="tel:+447729786681">+44 7729 786681</a>
+      <p class="tz">I'm <strong>5 hours behind</strong> you, so I may not pick up until around <strong>midday</strong> your time. Leave a message or a text and I'll come back to you as soon as I'm up.</p>
+      <p class="tz">Nothing here is urgent enough to worry about — if something goes wrong, it can almost always wait until I'm awake.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Thank you — genuinely. 🏡</p>
+    <button type="button" id="reset-btn" class="reset-btn">Reset all ticks</button>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
