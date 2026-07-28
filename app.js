@@ -17,7 +17,7 @@ const STORE_KEY = 'southerton5.v1';
 
 /* Notes that only apply to particular days. */
 const DAY_NOTES = {
-  '2026-07-31': "First day. I'll have shown you how the front door lock works before I left — if it's not catching, give it another go slowly, and ring me if it won't play.",
+  '2026-07-31': "First day. Remember the front door: if it won't close, the safety catch is still out — a double open motion from the inside withdraws it. See the Doors & the lock note below.",
   '2026-08-30': 'Last full day — thank you for looking after the place.',
   '2026-08-31': "I'm back today. Feed the fish as usual and that's you done. Thank you, genuinely."
 };
