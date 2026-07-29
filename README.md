@@ -48,9 +48,26 @@ anything longer, `shrink.swift`-style export with a `fileLengthLimit` gives
 a predictable size where the fixed presets don't:
 
 ```swift
+let export = AVAssetExportSession(asset: asset,
+                                  presetName: AVAssetExportPreset640x480)!
 export.fileLengthLimit = 5_500_000
 export.metadata = []                       // drop all source metadata
 export.shouldOptimizeForNetworkUse = true  // start playing while downloading
+```
+
+**Let the preset do the scaling.** Building an
+`AVMutableVideoComposition(propertiesOf:)` and then setting a smaller
+`renderSize` does *not* scale the picture down — the layer instructions still
+map to the source's full frame, so the output is **cropped** to that window.
+It looks like a zoomed-in video. This bit us once; the giveaway was that the
+poster (taken from the original) showed a wider shot than the video itself.
+
+After re-encoding, always compare a frame from the middle of both files:
+
+```bash
+# same timestamp from source and output — they should frame identically
+swift attimes.swift "source.mov"  ./out_orig 10.0
+swift attimes.swift "encoded.mp4" ./out_enc  10.0
 ```
 
 Both videos use `preload="none"` with a `poster`, so a visitor downloads only
