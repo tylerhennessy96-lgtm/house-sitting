@@ -491,6 +491,42 @@ h1, h2 { line-height: 1.2; letter-spacing: -.02em; margin: 0; }
 .note-body p:last-child { margin-bottom: 0; }
 .note-body strong { color: var(--ink); font-weight: 650; }
 
+.steps {
+  margin: 0 0 11px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.steps li {
+  counter-increment: step;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* The text sits in a span so it stays one flex item and wraps as a block,
+   rather than <strong> and the text after it becoming separate columns. */
+.steps li > span { flex: 1; min-width: 0; }
+
+.steps li::before {
+  content: counter(step);
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--card);
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .video {
   margin: 0 0 11px;
 }

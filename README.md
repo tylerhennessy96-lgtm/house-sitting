@@ -14,7 +14,9 @@ move between days, and the calendar jumps to any day of the stay.
 | `styles.css` | Styling (light and dark mode) |
 | `app.js` | Dates, tasks, ticking, saving |
 | `door-operation.mp4` | Short clip of the front door being opened and locked |
-| `door-poster.jpg` | Still frame shown before the video is played |
+| `door-poster.jpg` | Still frame shown before that video is played |
+| `feeder-operation.mp4` | Clip of the automatic fish feeder being set up |
+| `feeder-poster.jpg` | Still frame shown before that video is played |
 
 No build step, no dependencies. Open `index.html` in a browser and it works.
 
@@ -39,8 +41,26 @@ mdls "some video.mov" | grep -iE "latitude|longitude"
 ```
 
 `.mov` files are gitignored so the originals can't be committed by accident.
-The re-encode is also far smaller (26 MB → 6 MB), and the page uses
-`preload="none"`, so visitors only download it if they press play.
+Both source clips carried the same coordinates.
+
+The re-encodes are also far smaller (26 MB → 6 MB, 41 MB → 5.6 MB). For
+anything longer, `shrink.swift`-style export with a `fileLengthLimit` gives
+a predictable size where the fixed presets don't:
+
+```swift
+export.fileLengthLimit = 5_500_000
+export.metadata = []                       // drop all source metadata
+export.shouldOptimizeForNetworkUse = true  // start playing while downloading
+```
+
+Both videos use `preload="none"` with a `poster`, so a visitor downloads only
+the still (~30 KB) unless they press play. Keep it that way — the page is
+otherwise well under 100 KB.
+
+**Also check what's in shot.** These were filmed indoors, and the feeder clip
+has a framed family photograph visible at the start and end. That was a
+deliberate call to publish, not an oversight — worth re-checking before
+swapping in any replacement footage.
 
 ## Publishing to GitHub Pages
 
