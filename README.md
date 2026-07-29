@@ -1,4 +1,4 @@
-# 5 Southerton — house sitting
+# House sitting
 
 A one-page site for whoever is looking after the house, covering
 **Fri 31 July – Mon 31 August 2026**.
@@ -62,22 +62,18 @@ has a framed family photograph visible at the start and end. That was a
 deliberate call to publish, not an oversight — worth re-checking before
 swapping in any replacement footage.
 
-## Publishing to GitHub Pages
+## The live site
+
+<https://tylerhennessy96-lgtm.github.io/house-sitting/>
+
+Served by GitHub Pages from `main` at the repo root. To change anything, edit
+and push — the rebuild takes a minute or two:
 
 ```bash
-cd "5 Southerton"
-git init
-git add .
-git commit -m "House sitting site for 5 Southerton"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
+git add -A
+git commit -m "what changed"
+git push
 ```
-
-Then on GitHub: **Settings → Pages → Source: Deploy from a branch → `main` / `root` → Save.**
-
-After a minute or two it's live at
-`https://YOUR-USERNAME.github.io/YOUR-REPO/`.
 
 Note that a free GitHub Pages site is **public** — anyone with the link can
 read it, and the phone number is on the page. If you'd rather it weren't

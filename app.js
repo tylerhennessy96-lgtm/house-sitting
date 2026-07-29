@@ -1,4 +1,4 @@
-/* ── 5 Southerton — house sitting ──────────────────────────────
+/* ── House sitting ──────────────────────────────
    One page, one job: show whoever's looking after the house what
    needs doing today, and let them look ahead or back.
    Ticks are saved in this browser only (localStorage).
