@@ -83,7 +83,7 @@ function tasksFor(date) {
   list.push({
     id: 'doors',
     title: 'Front and back doors locked',
-    sub: 'Whenever the house is empty — even for ten minutes.'
+    sub: 'Including the bottom lock on the front door, from the outside.'
   });
 
   return list;
