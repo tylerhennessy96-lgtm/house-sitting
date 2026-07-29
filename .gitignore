@@ -1,2 +1,7 @@
 .DS_Store
 .claude/
+
+# Source video from the phone — carries GPS metadata (the house's location),
+# so it must never be committed. The published clip is door-operation.mp4,
+# re-encoded with that metadata stripped.
+*.mov

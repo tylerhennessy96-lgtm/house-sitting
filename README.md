@@ -13,8 +13,34 @@ move between days, and the calendar jumps to any day of the stay.
 | `index.html` | The page — all the wording lives here |
 | `styles.css` | Styling (light and dark mode) |
 | `app.js` | Dates, tasks, ticking, saving |
+| `door-operation.mp4` | Short clip of the front door being opened and locked |
+| `door-poster.jpg` | Still frame shown before the video is played |
 
 No build step, no dependencies. Open `index.html` in a browser and it works.
+
+## Before adding any phone video
+
+**Phone videos carry the GPS coordinates of where they were filmed.** The
+original `door operation.mov` had this house's location written into it, so
+committing it as-is would have published the address to a public repo.
+
+`door-operation.mp4` is a re-encode with that metadata stripped:
+
+```bash
+avconvert --preset Preset640x480 --multiPass \
+  --source "door operation.mov" --output door-operation.mp4 --replace
+```
+
+`avconvert` filters privacy-sensitive metadata by default — don't pass
+`--disableMetadataFilter`. To check what a file is carrying:
+
+```bash
+mdls "some video.mov" | grep -iE "latitude|longitude"
+```
+
+`.mov` files are gitignored so the originals can't be committed by accident.
+The re-encode is also far smaller (26 MB → 6 MB), and the page uses
+`preload="none"`, so visitors only download it if they press play.
 
 ## Publishing to GitHub Pages
 
